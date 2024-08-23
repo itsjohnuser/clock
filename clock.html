@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Date and Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+                    <p id="date"></p>
+                    <p>|</p>
+                    <p id="day"></p>
+                    <p id="time"></p>
+                    <p>|</p>
+                    <p id="hrs"></p>
+                    <p>:</p>
+                    <p id="min"></p>
+                    <p>:</p>
+                    <p id="sec"></p>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var date = new Date();
+        let hrs = document.getElementById("hrs");
+        let min = document.getElementById("min");
+        let sec = document.getElementById("sec");
+        const todaydate = document.getElementById("date");
+        const todayday = document.getElementById("day");
+        const todaytime = document.getElementById("time");
+        const noofday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        setInterval(function () {
+            date = new Date(); // Update date object within the function
+
+            hrs.innerHTML = date.getHours();
+            min.innerHTML = date.getMinutes();
+            sec.innerHTML = date.getSeconds();
+        }, 1000);
+
+        function printDate() {
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            todaydate.innerHTML = day + "/" + month + "/" + year;
+
+            var dayIndex = date.getDay();
+            todayday.innerHTML = noofday[dayIndex];
+        }
+        printDate();
+    </script>
+</body>
+
+</html>
